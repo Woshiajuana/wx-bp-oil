@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "一步记账",
+    "usingComponents": {
+        "wow-scroll": "../../components/wow-scroll/index"
+    }
+}

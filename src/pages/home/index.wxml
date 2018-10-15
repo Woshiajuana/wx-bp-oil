@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view class="wrap">
+
+    <!--&lt;!&ndash;用户&ndash;&gt;-->
+    <!--<view class="user">-->
+        <!--<image class="user-image" src="../../assets/images/home-button-icon.png"></image>-->
+        <!--<image class="user-image" src="{{src$.mine}}"></image>-->
+    <!--</view>-->
+    <!--<text>{{src$.mine}}</text>-->
+    <!--&lt;!&ndash;/用户&ndash;&gt;-->
+    <!--<button bindtap="handleTap">点击</button>-->
+    <!--&lt;!&ndash;蓝牙&ndash;&gt;-->
+    <!--<view class="blue-tooth">-->
+        <!--<image class="blue-tooth-icon"-->
+               <!--mode="aspectFit" src="../../assets/images/blue-tooth-icon.png"></image>-->
+        <!--<view class="blue-tooth-bar"></view>-->
+        <!--<text class="blue-tooth-text">蓝牙连接</text>-->
+    <!--</view>-->
+    <!--&lt;!&ndash;/蓝牙&ndash;&gt;-->
+
+    <wow-scroll></wow-scroll>
+
+</view>

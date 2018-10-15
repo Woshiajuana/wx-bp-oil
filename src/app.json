@@ -1,0 +1,11 @@
+{
+    "pages": [
+        "pages/home/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "一步记账",
+        "navigationBarTextStyle": "black"
+    }
+}

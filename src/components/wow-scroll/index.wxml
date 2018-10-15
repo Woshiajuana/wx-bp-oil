@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="wrap">
+    <text>组件</text>
+</view>
