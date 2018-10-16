@@ -1,6 +1,13 @@
 @import "../../assets/scss/define";
 @import "../../assets/scss/skin";
-
+page{
+    @extend %h100;
+}
+.wrap{
+    @extend %df;
+    @extend %fdc;
+    @extend %h100;
+}
 .header{
     @extend %pr;
     @extend %df;
@@ -61,55 +68,58 @@
     }
 }
 
-.list{
+.list-wrap{
+    @extend %df1;
+    height: wx(100);
+    margin-top: wx(100);
+}
+.list-inner{
     @extend %df;
+    @extend %df1;
     @extend %fdc;
     @extend %pr;
-    margin-top: wx(120);
+    @extend %h100;
 }
-.list-bar{
+.list-session{
+    @extend %pr;
+    @extend %df;
+    @extend %aic;
+    padding: wx(30);
+}
+.session-bar{
     @extend %pa;
     @extend %t0;
     @extend %b0;
     @extend %l50;
     width: wx(1);
     transform: translate3d(-50%, 0, 0);
-    background-color: red;
-}
-.list-session{
-    @extend %pr;
-    @extend %df;
-    @extend %aic;
-    margin-bottom: wx(20);
-    &.session-top{
-
-    }
+    background-color: #ddd;
 }
 .session-item{
     @extend %df1;
     @extend %df;
-    @extend %aic;
+    @extend %fdc;
+    line-height: 1.5;
     text{
         @extend %db;
         @extend %c6;
         font-size: wx(28);
     }
     &.left{
-        justify-content: flex-end;
+        align-items: flex-end;
+    }
+    .amount{
+        font-size: wx(36);
     }
 }
 .session-center{
+    @extend %pr;
     @extend %df;
     @extend %aic;
     @extend %jcc;
-    width: wx(120);
-    margin: 0 wx(20);
-}
-.session-spot{
-    width: wx(20);
-    height: wx(20);
-    border-radius: 50%;
-    background-color: red;
+    width: wx(100);
+    height: wx(70);
+    background-color: #fff;
 }
 .session-icon{
     width: wx(60);

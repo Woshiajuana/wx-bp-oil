@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view>
+<view class="wrap">
     <!--头部-->
     <view class="header">
         <view class="amount-item">
@@ -18,32 +18,89 @@
     </view>
     <!--/头部-->
 
-    <view class="list">
-        <view class="list-item">
-            <view class="list-bar"></view>
-            <view class="list-session session-top">
+    <view class="list-wrap">
+        <scroll-view scroll-y class="list-inner">
+            <view class="list-session">
+                <view class="session-bar"></view>
                 <view class="session-item left">
-                    <text>2018-10-16</text>
+                    <text>2018-10-16 09:58</text>
+                    <text class="amount">20</text>
+                    <text>朋友聚会朋友聚会朋友</text>
                 </view>
                 <view class="session-center">
-                    <view class="session-spot"></view>
+                    <image class="session-icon"></image>
                 </view>
                 <view class="session-item">
-                    <text>09:58</text>
+                    <text></text>
+                    <text class="amount"></text>
+                    <text></text>
                 </view>
             </view>
             <view class="list-session">
+                <view class="session-bar"></view>
                 <view class="session-item left">
+                    <text></text>
+                    <text class="amount"></text>
                     <text></text>
                 </view>
                 <view class="session-center">
                     <image class="session-icon"></image>
                 </view>
                 <view class="session-item">
-                    <text>消费20</text>
+                    <text>2018-10-16 09:58</text>
+                    <text class="amount">20</text>
+                    <text>朋友聚会朋友聚会朋友</text>
                 </view>
             </view>
-        </view>
+            <view class="list-session">
+                <view class="session-bar"></view>
+                <view class="session-item left">
+                    <text></text>
+                    <text class="amount"></text>
+                    <text></text>
+                </view>
+                <view class="session-center">
+                    <image class="session-icon"></image>
+                </view>
+                <view class="session-item">
+                    <text>2018-10-16 09:58</text>
+                    <text class="amount">20</text>
+                    <text>朋友聚会朋友聚会朋友</text>
+                </view>
+            </view>
+            <view class="list-session">
+                <view class="session-bar"></view>
+                <view class="session-item left">
+                    <text></text>
+                    <text class="amount"></text>
+                    <text></text>
+                </view>
+                <view class="session-center">
+                    <image class="session-icon"></image>
+                </view>
+                <view class="session-item">
+                    <text>2018-10-16 09:58</text>
+                    <text class="amount">20</text>
+                    <text>朋友聚会朋友聚会朋友</text>
+                </view>
+            </view>
+            <view class="list-session">
+                <view class="session-bar"></view>
+                <view class="session-item left">
+                    <text></text>
+                    <text class="amount"></text>
+                    <text></text>
+                </view>
+                <view class="session-center">
+                    <image class="session-icon"></image>
+                </view>
+                <view class="session-item">
+                    <text>2018-10-16 09:58</text>
+                    <text class="amount">20</text>
+                    <text>朋友聚会朋友聚会朋友</text>
+                </view>
+            </view>
+        </scroll-view>
     </view>
 
 </view>
