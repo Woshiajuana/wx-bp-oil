@@ -1,23 +1,47 @@
 <!--index.wxml-->
-<view class="wrap">
+<view>
+    <!--头部-->
+    <view class="header">
 
-    <!--&lt;!&ndash;用户&ndash;&gt;-->
-    <!--<view class="user">-->
-        <!--<image class="user-image" src="../../assets/images/home-button-icon.png"></image>-->
-        <!--<image class="user-image" src="{{src$.mine}}"></image>-->
-    <!--</view>-->
-    <!--<text>{{src$.mine}}</text>-->
-    <!--&lt;!&ndash;/用户&ndash;&gt;-->
-    <!--<button bindtap="handleTap">点击</button>-->
-    <!--&lt;!&ndash;蓝牙&ndash;&gt;-->
-    <!--<view class="blue-tooth">-->
-        <!--<image class="blue-tooth-icon"-->
-               <!--mode="aspectFit" src="../../assets/images/blue-tooth-icon.png"></image>-->
-        <!--<view class="blue-tooth-bar"></view>-->
-        <!--<text class="blue-tooth-text">蓝牙连接</text>-->
-    <!--</view>-->
-    <!--&lt;!&ndash;/蓝牙&ndash;&gt;-->
+        <!--数据显示-->
+        <view class="info">
+            <view class="info-item">
+                <text class="info-label">当月收入</text>
+                <text class="info-value">888</text>
+            </view>
+            <view class="info-item">
+                <text class="info-label">当月支出</text>
+                <text class="info-value">-888</text>
+            </view>
+        </view>
+        <!--/数据显示-->
 
-    <wow-scroll></wow-scroll>
+        <!--添加按钮-->
+        <view class="append">
+            <image></image>
+        </view>
+        <!--/添加按钮-->
+
+    </view>
+    <!--/头部-->
+
+    <view class="list">
+        <view class="list-item">
+            <view class="list-top">
+                <text class="date">2018-10-16</text>
+                <view class="spot"></view>
+                <text class="time">09:58</text>
+            </view>
+            <view class="list-center">
+                <view class="center-item">
+                    <text>20</text>
+                </view>
+                <image class="center-icon"></image>
+                <view class="center-item">
+                    <text>20</text>
+                </view>
+            </view>
+        </view>
+    </view>
 
 </view>
