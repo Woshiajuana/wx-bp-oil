@@ -4,7 +4,7 @@
 .header{
     @extend %pr;
     @extend %df;
-    @extend %aic;
+    align-items: flex-end;
     height: wx(200);
     padding: 0 wx(32);
     background-color: $mainColor;
@@ -19,25 +19,26 @@
     @extend %df;
 }
 .amount-item{
+    line-height: 1.5;
     text{
         @extend %db;
-        @extend %cfff;
-        font-size: wx(32);
     }
     &.right{
         text{
             @extend %tar;
         }
+        .amount-value{
+            color: red;
+        }
     }
 }
 .amount-label{
-
+    @extend %cfff;
+    font-size: wx(28);
 }
 .amount-value{
-
+    font-size: wx(42);
 }
-
-
 .append{
     @extend %pa;
     @extend %l50;
@@ -57,5 +58,35 @@
         height: wx(180);
         border-radius: 50%;
         background-color: red;
+    }
+}
+
+.list{
+    @extend %df;
+    @extend %fdc;
+    @extend %pr;
+    margin-top: wx(120);
+}
+.list-bar{
+    @extend %pa;
+    @extend %t0;
+    @extend %b0;
+    @extend %l50;
+    width: wx(1);
+    transform: translate3d(-50%, 0, 0);
+    background-color: red;
+}
+.list-item{
+    @extend %df;
+    @extend %fdc;
+    background-color: #4852ff;
+}
+.list-top{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    text{
+        @extend %c3;
+        font-size: wx(36);
     }
 }
