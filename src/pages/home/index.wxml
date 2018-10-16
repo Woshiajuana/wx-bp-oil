@@ -21,18 +21,26 @@
     <view class="list">
         <view class="list-item">
             <view class="list-bar"></view>
-            <view class="list-top">
-                <text class="date">2018-10-16</text>
-                <view class="spot"></view>
-                <text class="time">09:58</text>
-            </view>
-            <view class="list-center">
-                <view class="center-item">
-                    <text>20</text>
+            <view class="list-session session-top">
+                <view class="session-item left">
+                    <text>2018-10-16</text>
                 </view>
-                <image class="center-icon"></image>
-                <view class="center-item">
-                    <text>20</text>
+                <view class="session-center">
+                    <view class="session-spot"></view>
+                </view>
+                <view class="session-item">
+                    <text>09:58</text>
+                </view>
+            </view>
+            <view class="list-session">
+                <view class="session-item left">
+                    <text></text>
+                </view>
+                <view class="session-center">
+                    <image class="session-icon"></image>
+                </view>
+                <view class="session-item">
+                    <text>消费20</text>
                 </view>
             </view>
         </view>

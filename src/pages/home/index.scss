@@ -76,17 +76,44 @@
     transform: translate3d(-50%, 0, 0);
     background-color: red;
 }
-.list-item{
+.list-session{
+    @extend %pr;
     @extend %df;
-    @extend %fdc;
-    background-color: #4852ff;
+    @extend %aic;
+    margin-bottom: wx(20);
+    &.session-top{
+
+    }
 }
-.list-top{
+.session-item{
+    @extend %df1;
+    @extend %df;
+    @extend %aic;
+    text{
+        @extend %db;
+        @extend %c6;
+        font-size: wx(28);
+    }
+    &.left{
+        justify-content: flex-end;
+    }
+}
+.session-center{
     @extend %df;
     @extend %aic;
     @extend %jcc;
-    text{
-        @extend %c3;
-        font-size: wx(36);
-    }
+    width: wx(120);
+    margin: 0 wx(20);
+}
+.session-spot{
+    width: wx(20);
+    height: wx(20);
+    border-radius: 50%;
+    background-color: red;
+}
+.session-icon{
+    width: wx(60);
+    height: wx(60);
+    border-radius: 50%;
+    background-color: #ffe925;
 }
