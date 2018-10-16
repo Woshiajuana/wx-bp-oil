@@ -3,13 +3,40 @@
 
 .header{
     @extend %pr;
+    @extend %df;
+    @extend %aic;
     height: wx(200);
+    padding: 0 wx(32);
     background-color: $mainColor;
+    justify-content: space-between;
 }
 
 .info{
+    @extend %pa;
+    @extend %l0;
+    @extend %r0;
+    @extend %b0;
+    @extend %df;
+}
+.amount-item{
+    text{
+        @extend %db;
+        @extend %cfff;
+        font-size: wx(32);
+    }
+    &.right{
+        text{
+            @extend %tar;
+        }
+    }
+}
+.amount-label{
 
 }
+.amount-value{
+
+}
+
 
 .append{
     @extend %pa;
