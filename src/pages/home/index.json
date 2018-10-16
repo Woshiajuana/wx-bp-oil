@@ -1,5 +1,7 @@
 {
-    "navigationBarTitleText": "一步记账",
+    "navigationBarTitleText": "一步记账1",
+    "navigationBarTextStyle": "#fff",
+    "navigationBarBackgroundColor": "#5cc8fe",
     "usingComponents": {
         "wow-scroll": "../../components/wow-scroll/index"
     }
