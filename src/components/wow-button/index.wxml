@@ -3,7 +3,6 @@
 <button class="wrap button-wrap">
     <slot name="cell-wrap-left"></slot>
     <text
-        wx:if="{{button_txt}}"
         class="text"
-    >button_txt</text>
+    >{{button_txt}}xxx</text>
 </button>
