@@ -9,5 +9,8 @@ Component({
             value: '',
         }
     },
-    externalClasses: ['button-class']
+    externalClasses: [
+        'button-class',
+        'button-txt-class',
+    ]
 });
