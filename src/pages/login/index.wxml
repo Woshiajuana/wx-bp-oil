@@ -1,4 +1,4 @@
 <!--index.wxml-->
 <view class="wrap">
-    <wow-button button_txt="按钮" class="button-wrap"></wow-button>
+    <wow-button button_txt="按钮" button-wrap="button-wrap my-class"></wow-button>
 </view>

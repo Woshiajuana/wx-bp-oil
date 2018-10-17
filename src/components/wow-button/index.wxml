@@ -1,8 +1,9 @@
 
 
-<button class="wrap button-wrap">
+<wow-button class="wrap button-wrap my-class">
     <slot name="cell-wrap-left"></slot>
     <text
         class="text"
-    >{{button_txt}}xxx</text>
-</button>
+    >{{button_txt}}xx1x</text>
+    你好
+</wow-button>
