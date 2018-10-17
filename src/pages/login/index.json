@@ -3,6 +3,6 @@
     "navigationBarTextStyle": "#fff",
     "navigationBarBackgroundColor": "#5cc8fe",
     "usingComponents": {
-        "wow-scroll": "../../components/wow-scroll/index"
+        "wow-button": "../../components/wow-button/index"
     }
 }

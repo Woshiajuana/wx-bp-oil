@@ -1,0 +1,11 @@
+
+<view class="wrap">
+    <slot name="cell-wrap-left"></slot>
+    <view class="inner">
+        <slot name="cell-inner-left"></slot>
+        <text class="label"></text>
+        <text class="value"></text>
+        <slot name="cell-inner-right"></slot>
+    </view>
+    <slot name="cell-wrap-right"></slot>
+</view>
