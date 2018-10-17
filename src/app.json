@@ -1,9 +1,9 @@
 {
     "pages": [
+        "pages/mine/index",
         "pages/home/index",
         "pages/bill/index",
-        "pages/login/index",
-        "pages/mine/index"
+        "pages/login/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -25,13 +25,13 @@
                 "selectedIconPath": "assets/images/tabbar-mine-icon.png"
             },
             {
-                "pagePath": "pages/home/index",
+                "pagePath": "pages/bill/index",
                 "text": "账单",
                 "iconPath": "assets/images/tabbar-mine-icon.png",
                 "selectedIconPath": "assets/images/tabbar-mine-icon.png"
             },
             {
-                "pagePath": "pages/home/index",
+                "pagePath": "pages/mine/index",
                 "text": "我的",
                 "iconPath": "assets/images/tabbar-mine-icon.png",
                 "selectedIconPath": "assets/images/tabbar-mine-icon.png"

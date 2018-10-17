@@ -2,105 +2,37 @@
 <view class="wrap">
     <!--头部-->
     <view class="header">
-        <view class="amount-item">
-            <text class="amount-label">当月收入</text>
-            <text class="amount-value">888</text>
-        </view>
-        <!--添加按钮-->
-        <view class="append">
+        <view class="user-wrap">
             <image></image>
-        </view>
-        <!--/添加按钮-->
-        <view class="amount-item right">
-            <text class="amount-label">当月支出</text>
-            <text class="amount-value">888888888.88</text>
+            <text>Ajuan</text>
         </view>
     </view>
+
     <!--/头部-->
-
-    <view class="list-wrap">
-        <scroll-view scroll-y class="list-inner">
-            <view class="list-session">
-                <view class="session-bar"></view>
-                <view class="session-item left">
-                    <text>2018-10-16 09:58</text>
-                    <text class="amount">20</text>
-                    <text>朋友聚会朋友聚会朋友</text>
-                </view>
-                <view class="session-center">
-                    <image class="session-icon"></image>
-                </view>
-                <view class="session-item">
-                    <text></text>
-                    <text class="amount"></text>
-                    <text></text>
-                </view>
+    <view class="entry-wrap">
+        <view class="entry-item">
+            <image></image>
+            <view class="entry-con">
+                <text class="entry-label">类别设置</text>
+                <text class="entry-value"></text>
+                <view class="entry-arrow"></view>
             </view>
-            <view class="list-session">
-                <view class="session-bar"></view>
-                <view class="session-item left">
-                    <text></text>
-                    <text class="amount"></text>
-                    <text></text>
-                </view>
-                <view class="session-center">
-                    <image class="session-icon"></image>
-                </view>
-                <view class="session-item">
-                    <text>2018-10-16 09:58</text>
-                    <text class="amount">20</text>
-                    <text>朋友聚会朋友聚会朋友</text>
-                </view>
+        </view>
+        <view class="entry-item">
+            <image></image>
+            <view class="entry-con">
+                <text class="entry-label">类别设置</text>
+                <text class="entry-value"></text>
+                <view class="entry-arrow"></view>
             </view>
-            <view class="list-session">
-                <view class="session-bar"></view>
-                <view class="session-item left">
-                    <text></text>
-                    <text class="amount"></text>
-                    <text></text>
-                </view>
-                <view class="session-center">
-                    <image class="session-icon"></image>
-                </view>
-                <view class="session-item">
-                    <text>2018-10-16 09:58</text>
-                    <text class="amount">20</text>
-                    <text>朋友聚会朋友聚会朋友</text>
-                </view>
+        </view>
+        <view class="entry-item">
+            <image></image>
+            <view class="entry-con">
+                <text class="entry-label">类别设置</text>
+                <text class="entry-value"></text>
+                <view class="entry-arrow"></view>
             </view>
-            <view class="list-session">
-                <view class="session-bar"></view>
-                <view class="session-item left">
-                    <text></text>
-                    <text class="amount"></text>
-                    <text></text>
-                </view>
-                <view class="session-center">
-                    <image class="session-icon"></image>
-                </view>
-                <view class="session-item">
-                    <text>2018-10-16 09:58</text>
-                    <text class="amount">20</text>
-                    <text>朋友聚会朋友聚会朋友</text>
-                </view>
-            </view>
-            <view class="list-session">
-                <view class="session-bar"></view>
-                <view class="session-item left">
-                    <text></text>
-                    <text class="amount"></text>
-                    <text></text>
-                </view>
-                <view class="session-center">
-                    <image class="session-icon"></image>
-                </view>
-                <view class="session-item">
-                    <text>2018-10-16 09:58</text>
-                    <text class="amount">20</text>
-                    <text>朋友聚会朋友聚会朋友</text>
-                </view>
-            </view>
-        </scroll-view>
+        </view>
     </view>
-
 </view>
