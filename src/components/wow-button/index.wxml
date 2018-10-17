@@ -1,9 +1,9 @@
 
 
-<view class="wrap button-class">
+<button class="wrap button-class">
     <slot name="cell-wrap-left"></slot>
     <text
         wx:if="{{button_txt}}"
         class="text button-txt-class"
     >{{button_txt}}</text>
-</view>
+</button>

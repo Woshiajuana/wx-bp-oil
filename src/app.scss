@@ -1,2 +1,12 @@
-page{
+@import "./assets/scss/define";
+@import "./assets/scss/skin";
+
+.button-class{
+    background-color: $mainColor;
+    border: none;
+    margin: 0 wx(64);
+    border-radius: 50%;
+    text{
+        color: #fff;
+    }
 }

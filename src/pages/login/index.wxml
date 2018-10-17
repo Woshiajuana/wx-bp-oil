@@ -2,6 +2,6 @@
 <view class="wrap">
     <wow-button
         button_txt="按钮"
-        button-class="button-wrap"
+        button-class="button-class"
     ></wow-button>
 </view>
