@@ -32,6 +32,10 @@ Component({
             type: String,
             value: '请输入',
         },
+        cell_input_max: {
+            type: Number,
+            value: 140,
+        }
     },
     externalClasses: [
         'cell-class'

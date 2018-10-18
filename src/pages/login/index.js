@@ -30,6 +30,6 @@ Page(MixinUtil({
     },
     handleInput (event) {
         console.log(event);
-        
+
     }
 }));

@@ -10,6 +10,7 @@
             bindinput="handleInput"
             wx:if="{{cell_use_input}}"
             type="{{cell_input_type}}"
+            maxlength="{{cell_input_max}}"
             placeholder="{{cell_input_placeholder}}"
             value="{{cell_value}}"/>
         <slot name="cell-inner-right"></slot>
