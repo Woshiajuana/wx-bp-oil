@@ -5,8 +5,17 @@
     background-color: $mainColor;
     border: none;
     margin: 0 wx(64);
-    border-radius: 50%;
+    border-radius: wx(50);
     text{
         color: #fff;
+    }
+    &:active{
+        background-color: $mainActiveColor;
+    }
+}
+.button-disabled-class{
+    background-color: #ddd;
+    &:active{
+        background-color: #ddd;
     }
 }

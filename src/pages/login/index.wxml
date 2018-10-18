@@ -1,7 +1,10 @@
 <!--index.wxml-->
 <view class="wrap">
     <wow-button
+        button_disabled="{{false}}"
         button_txt="按钮"
         button-class="button-class"
+        button-disabled-class="button-disabled-class"
+        bindclick="handleClick"
     ></wow-button>
 </view>

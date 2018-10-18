@@ -19,4 +19,13 @@ Page(MixinUtil({
     onLoad () {
         // this.sourceGet(arr_src);
     },
+    handleClick (event) {
+        let { callback } = event.detail;
+        console.log('提交数据')
+        // callback()
+    },
+    handleGetUserInfo (event) {
+        console.log('heihei')
+        console.log(event);
+    }
 }));
