@@ -27,5 +27,9 @@ Page(MixinUtil({
     handleGetUserInfo (event) {
         console.log('heihei')
         console.log(event);
+    },
+    handleInput (event) {
+        console.log(event);
+        
     }
 }));

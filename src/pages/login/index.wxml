@@ -1,5 +1,11 @@
 <!--index.wxml-->
 <view class="wrap">
+    <wow-cell
+        cell_label="姓名"
+        cell_value="陈志刚"
+        cell_use_input
+        bindinput="handleInput"
+    ></wow-cell>
     <wow-button
         button_disabled="{{false}}"
         button_txt="按钮"

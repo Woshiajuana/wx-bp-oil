@@ -1,20 +1,44 @@
 import './index.json'
 import './index.wxml'
 import './index.scss'
+
 Component({
     properties: {
-        button_txt: {
+        cell_label: {
             type: String,
             value: '',
-        }
+        },
+        cell_value: {
+            type: String,
+            value: '',
+        },
+        cell_use_arrow: {
+            type: Boolean,
+            value: true,
+        },
+        cell_use_input: {
+            type: Boolean,
+            value: false,
+        },
+        cell_input_disabled: {
+            type: Boolean,
+            value: false,
+        },
+        cell_input_type: {
+            type: String,
+            value: 'text',
+        },
+        cell_input_placeholder: {
+            type: String,
+            value: '请输入',
+        },
     },
-    data: {
-        // 这里是一些组件内部数据
-        someData: {}
-    },
+    externalClasses: [
+        'cell-class'
+    ],
     methods: {
-        // 这里是一个自定义方法
-        customMethod: function(){}
-    },
-    externalClasses: ['button-wrap', 'my-class']
+        handleInput (event) {
+            this.triggerEvent('input', event.detail);
+        }
+    }
 });
