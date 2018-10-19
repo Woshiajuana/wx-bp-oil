@@ -6,6 +6,7 @@
         cell_use_input
         bindinput="handleInput"
     ></wow-cell>
+    <input type="text" placeholder="xx"/>
     <wow-button
         button_disabled="{{false}}"
         button_txt="按钮"
