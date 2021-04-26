@@ -183,7 +183,7 @@
         </view>
     </view>
 
-    <view wx:if="{{objCarInfo}}" class="tel-button" bindtap="handleTelConfirm"><text>拨打客服热线</text></view>
+<!--    <view wx:if="{{objCarInfo}}" class="tel-button" bindtap="handleTelConfirm"><text>拨打客服热线</text></view>-->
 
     <view class="advert-section" wx:if="{{objCarInfo}}">
         <view class="advert-item">
