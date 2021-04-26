@@ -187,7 +187,7 @@
 
     <view class="advert-section" wx:if="{{objCarInfo}}">
         <view class="advert-item">
-            <image class="advert-image" mode="widthFix" src="../../assets/images/banner-1.png"></image>
+            <image class="advert-image" mode="widthFix" src="../../assets/images/banner-1.jpg"></image>
         </view>
     </view>
 
