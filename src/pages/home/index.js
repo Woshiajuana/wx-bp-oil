@@ -38,12 +38,6 @@ WowPage({
             .then((res) => this.setData({ useSave: res }))
             .catch(() => this.inputCallback());
     },
-    reqUserInfo () {
-        let { http } = this.wow$.plugins;
-        http(http.API.REQ_USER_INFO).then(() => {
-
-        }).toast();
-    },
     reqHistoryList () {
         let { http } = this.wow$.plugins;
         let { numIndex, numSize, arrHistory } = this.data;

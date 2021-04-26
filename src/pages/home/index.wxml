@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="wrap">
 
-    <image class="bg" mode="widthFix" src="../../assets/images/home-bg.png"></image>
+    <image class="bg" mode="widthFix" src="../../assets/images/home-bg.jpg"></image>
 
     <view class="section user-section">
         <view class="user-avatar"
@@ -54,7 +54,7 @@
                 <view class="keyword-button" bindtap="handleSearch"><text>查询</text></view>
             </view>
             <view class="keyword-prompt">
-                <text>{{numTabIndex == 0 ? '根据品牌及车型查找适合你的油品 \n如有相关查询问题 请拨打：4000353585' : 'VIN码如：LVGB87E2HG054159 \n如有相关查询问题 请拨打：4000353585'}}</text>
+                <text>{{numTabIndex == 0 ? '根据品牌及车型查找适合你的油品' : 'VIN码如：LVGB87E2HG054159'}}</text>
             </view>
             <view class="keyword-popup" hidden="{{numTabIndex == 0}}" bindtap="bindInput" data-value="{{true}}" data-item="isPopup"><text>OCR拍照说明 (点击查看具体说明)</text></view>
         </view>
@@ -100,7 +100,7 @@
 
     <view class="advert-section">
         <view class="advert-item">
-            <image class="advert-image" mode="widthFix" src="../../assets/images/banner-1.png"></image>
+            <image class="advert-image" mode="widthFix" src="../../assets/images/banner-1.jpg"></image>
         </view>
     </view>
 

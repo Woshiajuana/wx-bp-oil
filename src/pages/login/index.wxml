@@ -4,11 +4,11 @@
     <image class="logo" mode="widthFix" src="../../assets/images/logo-icon.png"></image>
 
     <view class="title">
-        <text>嘉实多选油助手</text>
+        <text>BP润滑油产品选油助手</text>
     </view>
 
     <view class="sub-title">
-        <text> 嘉实多（深圳）有限公司</text>
+        <text>嘉实多（深圳）有限公司</text>
     </view>
 
     <view class="bar"></view>
