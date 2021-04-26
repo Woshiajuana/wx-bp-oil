@@ -1,33 +1,44 @@
+import './project.config.json'
 import './app.json'
 import './app.scss'
+import './wxs/filter.wxs'
+import './utils/es6promise.util'
+import './utils/ald-stat'
 
-import MixinUtil                    from 'wow-wx/utils/mixin.util'
+import WowApp                       from 'wow-wx'
 
-// app.js
-App(MixinUtil({
-    // 生命周期函数--监听小程序初始化,
-    // 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
-    onLaunch () {
-
-    },
-    // 生命周期函数--监听小程序显示
-    // 当小程序启动，或从后台进入前台显示，会触发 onShow
-    onShow () {
-
-    },
-    // 生命周期函数--监听小程序隐藏
-    // 当小程序从前台进入后台，会触发 onHide
-    onHide () {
-
-    },
-    // 错误监听函数
-    // 当小程序发生脚本错误，或者 api 调用失败时，会触发 onError 并带上错误信息
-    onError (msg) {
-        console.log(msg);
-    },
-    // 页面不存在监听函数
-    // 当小程序出现要打开的页面不存在的情况，会带上页面信息回调该函数，详见下文
-    onPageNotFound () {
-        // 开发者可以在 onPageNotFound 回调中进行重定向处理，但必须在回调中同步处理，异步处理（例如 setTimeout 异步执行）无效。
+let files = require.context('./mixins', false, /.js$/);
+files.keys().forEach((key) => {
+    let newKey = key.substring(2, key.indexOf('.mixin'));
+    WowApp.use('mixins', newKey, files(key).default);
+});
+files = require.context('./config', false, /.js$/);
+files.keys().forEach((key) => {
+    if (['./env.bd.config.js', './env.cs.config.js', './env.sc.config.js'].indexOf(key) > -1) return;
+    let newKey = key.substring(2, key.indexOf('.config'));
+    WowApp.use('config', newKey, files(key).default);
+});
+files = require.context('./plugins', false, /.js$/);
+files.keys().forEach((key) => {
+    let newKey = key.substring(2, key.indexOf('.plugin'));
+    WowApp.use('plugins', newKey, files(key).default);
+});
+files = require.context('./utils', false, /.js$/);
+files.keys().forEach((key) => {
+    if (key.indexOf('.util') > -1) {
+        let newKey = key.substring(2, key.indexOf('.util'));
+        WowApp.use('utils', newKey, files(key).default || files(key));
     }
-}));
+});
+
+WowApp({
+    onLaunch () {
+        console.log('【SUCCESS】加载成功 => ', this.wow$);
+    },
+    onError (msg) {
+        console.log('【ERROR】发生错误 => ', msg);
+    },
+    onPageNotFound () {
+        this.wow$.plugins.router.push('home_index');
+    },
+});

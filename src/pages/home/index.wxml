@@ -1,106 +1,128 @@
 <!--index.wxml-->
 <view class="wrap">
-    <!--头部-->
-    <view class="header">
-        <view class="amount-item">
-            <text class="amount-label">当月收入</text>
-            <text class="amount-value">888</text>
+
+    <image class="bg" mode="widthFix" src="../../assets/images/home-bg.png"></image>
+
+    <view class="section user-section">
+        <view class="user-avatar"
+              data-url="login_index"
+              data-type="{{!user$.nickName}}"
+              bindtap="handleJump">
+            <image hidden="{{!user$.nickName}}" class="user-avatar-image" src="{{user$.avatarUrl}}"></image>
+            <text hidden="{{user$.nickName}}">点击登录</text>
         </view>
-        <!--添加按钮-->
-        <view class="append">
-            <image></image>
-        </view>
-        <!--/添加按钮-->
-        <view class="amount-item right">
-            <text class="amount-label">当月支出</text>
-            <text class="amount-value">888888888.88</text>
+        <view class="user-base">
+            <block wx:if="{{user$.nickName}}">
+                <text>{{user$.nickName}}</text>
+            </block>
+            <text wx:else>您好，登录之后有新天地哦...</text>
         </view>
     </view>
-    <!--/头部-->
 
-    <view class="list-wrap">
-        <scroll-view scroll-y class="list-inner">
-            <view class="list-session">
-                <view class="session-bar"></view>
-                <view class="session-item left">
-                    <text>2018-10-16 09:58</text>
-                    <text class="amount">20</text>
-                    <text>朋友聚会朋友聚会朋友</text>
+    <view class="section keyword-section">
+        <view class="keyword-tab">
+            <view class="keyword-tab-item {{numTabIndex == 0 && 'active'}}"
+                  data-item="numTabIndex"
+                  data-value="0"
+                  bindtap="bindInput">
+                <image wx:if="{{numTabIndex == 0}}" class="keyword-tab-icon" mode="widthFix" src="../../assets/images/v1023-ss-a.png"></image>
+                <image wx:else class="keyword-tab-icon" mode="widthFix" src="../../assets/images/v1023-ss.png"></image>
+                <text>按车型查询</text>
+            </view>
+            <view class="keyword-tab-item {{numTabIndex == 1 && 'active'}}"
+                  data-item="numTabIndex"
+                  data-value="1"
+                  bindtap="bindInput">
+                <image wx:if="{{numTabIndex == 1}}"  class="keyword-tab-icon" mode="widthFix" src="../../assets/images/v1023-cx.png"></image>
+                <image wx:else class="keyword-tab-icon" mode="widthFix" src="../../assets/images/v1023-cx-a.png"></image>
+                <text>按车架号查询</text>
+            </view>
+        </view>
+        <view class="keyword-content">
+            <view class="keyword-select"
+                  data-auth="true"
+                  data-url="brand_index"
+                  bindtap="handleJump"
+                  wx:if="{{numTabIndex == 0}}">
+                <text>请选择车辆品牌</text>
+            </view>
+            <view class="keyword-input-box" wx:else>
+                <view class="keyword-ocr" bindtap="handleOcr"><image class="keyword-ocr-icon" mode="widthFix" src="../../assets/images/ocr-icon.png"></image></view>
+                <view class="keyword-input">
+                    <input type="text" confirm-type="search" bindconfirm="handleSearch" bindinput="bindInput" value="{{strVin}}" data-item="strVin" placeholder="请输入17位VIN码"/>
                 </view>
-                <view class="session-center">
-                    <image class="session-icon"></image>
-                </view>
-                <view class="session-item">
-                    <text></text>
-                    <text class="amount"></text>
-                    <text></text>
+                <view class="keyword-button" bindtap="handleSearch"><text>查询</text></view>
+            </view>
+            <view class="keyword-prompt">
+                <text>{{numTabIndex == 0 ? '根据品牌及车型查找适合你的油品 \n如有相关查询问题 请拨打：4000353585' : 'VIN码如：LVGB87E2HG054159 \n如有相关查询问题 请拨打：4000353585'}}</text>
+            </view>
+            <view class="keyword-popup" hidden="{{numTabIndex == 0}}" bindtap="bindInput" data-value="{{true}}" data-item="isPopup"><text>OCR拍照说明 (点击查看具体说明)</text></view>
+        </view>
+        <view class="keyword-operate">
+            <text>查询之后保存到我的车辆</text>
+            <switch
+                class="keyword-switch"
+                color="#459350"
+                data-item="useSave"
+                bindchange="bindInput"
+                checked="{{useSave}}"
+            ></switch>
+        </view>
+<!--        <view class="prompt-text"><text>如有相关查询问题 请拨打：4000353585</text></view>-->
+    </view>
+
+    <view class="section history-section"
+          wx:if="{{arrHistory.length}}">
+        <view class="section-title">
+            <image class="title-icon" mode="widthFix" src="../../assets/images/ls-icon.png"></image>
+            <text>历史查询</text>
+        </view>
+        <view class="history-content">
+            <view class="history-item"
+                  bindtap="handleJump"
+                  data-auth="true"
+                  data-url="suitable_index"
+                  data-params="{{item}}"
+                  wx:for="{{arrHistory}}"
+                  wx:key="index">
+                <image class="history-logo" mode="widthFix" src="{{item.LogoPath}}"></image>
+                <text class="history-text">{{item.BrandName}} {{item.SeriesName}} {{item.ModelName}}{{item.BrandName}} {{item.SeriesName}} {{item.ModelName}}</text>
+            </view>
+        </view>
+        <view class="history-operate"
+              bindtap="handleLoad"
+              wx:if="{{arrHistory.length > 3}}">
+            <view class="history-more">
+                <text>{{arrHistory.length >= numTotal ? '没有更多了...' : '查看更多 >>'}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="advert-section">
+        <view class="advert-item">
+            <image class="advert-image" mode="widthFix" src="../../assets/images/banner-1.png"></image>
+        </view>
+    </view>
+
+    <view class="popup-warp" hidden="{{!isPopup}}">
+        <view class="popup-inner">
+            <view class="popup-head">
+                <text>OCR拍照说明</text>
+                <view class="popup-close" bindtap="bindInput" data-value="{{false}}" data-item="isPopup">
+                    <image class="popup-close-icon" src="../../assets/images/pop-close-icon.png" mode="widthFix"></image>
                 </view>
             </view>
-            <view class="list-session">
-                <view class="session-bar"></view>
-                <view class="session-item left">
-                    <text></text>
-                    <text class="amount"></text>
-                    <text></text>
+            <scroll-view class="popup-content" scroll-y>
+                <view class="popup-group">
+                    <view class="popup-prompt"><text>车辆铭牌：</text></view>
+                    <image class="popup-image" src="../../assets/images/WechatIMG1028.jpg" mode="widthFix"></image>
+                    <view class="popup-prompt"><text>行驶证：</text></view>
+                    <image class="popup-image" src="../../assets/images/WechatIMG1027.png" mode="widthFix"></image>
+                    <view class="popup-prompt"><text>前窗挡风玻璃：</text></view>
+                    <image class="popup-image" src="../../assets/images/WechatIMG1026.jpg" mode="widthFix"></image>
                 </view>
-                <view class="session-center">
-                    <image class="session-icon"></image>
-                </view>
-                <view class="session-item">
-                    <text>2018-10-16 09:58</text>
-                    <text class="amount">20</text>
-                    <text>朋友聚会朋友聚会朋友</text>
-                </view>
-            </view>
-            <view class="list-session">
-                <view class="session-bar"></view>
-                <view class="session-item left">
-                    <text></text>
-                    <text class="amount"></text>
-                    <text></text>
-                </view>
-                <view class="session-center">
-                    <image class="session-icon"></image>
-                </view>
-                <view class="session-item">
-                    <text>2018-10-16 09:58</text>
-                    <text class="amount">20</text>
-                    <text>朋友聚会朋友聚会朋友</text>
-                </view>
-            </view>
-            <view class="list-session">
-                <view class="session-bar"></view>
-                <view class="session-item left">
-                    <text></text>
-                    <text class="amount"></text>
-                    <text></text>
-                </view>
-                <view class="session-center">
-                    <image class="session-icon"></image>
-                </view>
-                <view class="session-item">
-                    <text>2018-10-16 09:58</text>
-                    <text class="amount">20</text>
-                    <text>朋友聚会朋友聚会朋友</text>
-                </view>
-            </view>
-            <view class="list-session">
-                <view class="session-bar"></view>
-                <view class="session-item left">
-                    <text></text>
-                    <text class="amount"></text>
-                    <text></text>
-                </view>
-                <view class="session-center">
-                    <image class="session-icon"></image>
-                </view>
-                <view class="session-item">
-                    <text>2018-10-16 09:58</text>
-                    <text class="amount">20</text>
-                    <text>朋友聚会朋友聚会朋友</text>
-                </view>
-            </view>
-        </scroll-view>
+            </scroll-view>
+        </view>
     </view>
 
 </view>

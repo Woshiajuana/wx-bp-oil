@@ -1,17 +1,38 @@
 <!--index.wxml-->
 <view class="wrap">
-    <wow-cell
-        cell_label="姓名"
-        cell_value="陈志刚"
-        cell_use_input
-        bindinput="handleInput"
-    ></wow-cell>
-    <input type="text" placeholder="xx"/>
-    <wow-button
-        button_disabled="{{false}}"
-        button_txt="按钮"
-        button-class="button-class"
-        button-disabled-class="button-disabled-class"
-        bindclick="handleClick"
-    ></wow-button>
+
+    <image class="logo" mode="widthFix" src="../../assets/images/logo-icon.png"></image>
+
+    <view class="title">
+        <text>嘉实多选油助手</text>
+    </view>
+
+    <view class="sub-title">
+        <text> 嘉实多（深圳）有限公司</text>
+    </view>
+
+    <view class="bar"></view>
+
+    <view class="prompt">
+        <text>该程序将获取以下授权</text>
+    </view>
+
+    <view class="prompt">
+        <view class="dot"></view>
+        <text>将获取您的公开信息（昵称、头像等）</text>
+    </view>
+
+    <view class="operate">
+        <button
+            class="operate-button cancel"
+            bindtap="handleRefuse"
+        >拒绝</button>
+        <button
+            class="operate-button sure"
+            open-type="getUserInfo"
+            bindgetuserinfo="handleGetUser"
+        >允许</button>
+    </view>
+
+
 </view>

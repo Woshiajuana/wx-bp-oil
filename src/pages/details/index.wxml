@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="wrap">
+    <loading wx:if="{{isLoading}}">加载中</loading>
+    <image
+        class="content"
+        mode="widthFix"
+        data-item="isLoading"
+        data-value="{{false}}"
+        bindload="bindInput"
+        src="{{params$.OilContentPath || params$.GearBoxOilDetailLink}}"
+    ></image>
+</view>

@@ -1,14 +1,14 @@
 {
-  "name": "wow-wx-example",
+  "name": "template-wechat",
   "version": "1.0.0",
   "description": "webpack building multiple page projects",
   "main": "index.js",
   "scripts": {
-    "dev": "node cmd -d dist&&node cmd -p&&node cmd -i -r BD&&node cmd -c&&webpack --watch --config ./build/webpack.dev.config.js",
-    "test": "node cmd -d dist&&node cmd -p&&node cmd -i -r CS&&node cmd -c&&webpack --watch --config ./build/webpack.dev.config.js",
-    "build": "node cmd -d dist&&node cmd -p&&node cmd -i -r SC&&node cmd -c&&webpack --watch --config ./build/webpack.prod.config.js",
+    "dev": "node cmd -d dist -i :cmd/config -r BD -p home_index&&webpack --watch --config ./build/webpack.config.js",
+    "test": "node cmd -d dist -i :cmd/config -r CS -p home_index&&webpack --watch --config ./build/webpack.config.js",
+    "build": "node cmd -d dist -i :cmd/config -r SC -p home_index&&webpack --watch --config ./build/webpack.config.js",
     "clear": "node cmd -d dist",
-    "router": "node cmd -p",
+    "router": "node cmd -p home_index",
     "serve": "serve -p 10011"
   },
   "repository": {
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Woshiajuana/wow-wx#readme",
   "devDependencies": {
+    "@antv/f2-canvas": "^1.0.5",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
     "babel-plugin-transform-runtime": "^6.23.0",
@@ -45,8 +46,9 @@
     "style-loader": "^0.20.1",
     "url-loader": "^1.1.1",
     "webpack": "^3.10.0",
+    "wow-cmd": "0.0.17",
     "wow-cool": "0.0.3",
-    "wow-wx": "0.0.1",
+    "wow-wx": "0.0.10",
     "wxapp-webpack-plugin": "^0.18.0"
   },
   "browserslist": [

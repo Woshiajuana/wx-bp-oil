@@ -18,8 +18,15 @@ Resources.prototype.query = function (source, webpack) {
         let $ = Cheerio.load(source);
         $('img').each((index, item) => {
             let src = $(item).attr('src');
-            if (src && src.indexOf('./') > -1) this.arr_source.push(src);
+            if (src && src.indexOf('./') > -1 && this.arr_source.indexOf(src) === -1)
+                this.arr_source.push(src);
         });
+        $('view').each((index, item) => {
+            let style = $(item).attr('style');
+            if (!style || style.indexOf('url(.') === -1) return null;
+            let src = style.substring(style.indexOf('../'), style.indexOf(')'));
+            this.arr_source.indexOf(src) === -1 && this.arr_source.push(src);
+        })
     }
     return this;
 };

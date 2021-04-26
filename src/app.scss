@@ -1,21 +1,17 @@
-@import "./assets/scss/define";
-@import "./assets/scss/skin";
+@import './assets/scss/define';
 
-.button-class{
-    background-color: $mainColor;
-    border: none;
-    margin: 0 wx(64);
-    border-radius: wx(50);
-    text{
-        color: #fff;
-    }
-    &:active{
-        background-color: $mainActiveColor;
-    }
-}
-.button-disabled-class{
-    background-color: #ddd;
-    &:active{
-        background-color: #ddd;
+.wrap{
+    &.list-page{
+        @extend %df;
+        @extend %df1;
+        @extend %fdc;
+        @extend %h100;
+        .main{
+            @extend %df1;
+            @extend %oh;
+            margin: j(30) j(30) 0;
+            background-color: #fff;
+        }
     }
 }
+

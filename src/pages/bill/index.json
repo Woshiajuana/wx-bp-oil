@@ -1,8 +1,0 @@
-{
-    "navigationBarTitleText": "账单明细",
-    "navigationBarTextStyle": "#fff",
-    "navigationBarBackgroundColor": "#5cc8fe",
-    "usingComponents": {
-        "wow-scroll": "../../components/wow-scroll/index"
-    }
-}

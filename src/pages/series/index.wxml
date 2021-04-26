@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="wrap">
+    <view class="search-section">
+        <view class="search-image">
+            <image class="search-icon" mode="widthFix" src="../../assets/images/search-icon.png"></image>
+        </view>
+        <input
+            class="search-input"
+            type="text"
+            placeholder="搜索车系"
+            bindinput="bindInput"
+            data-item="strKeyword"
+        />
+    </view>
+    <view class="result-prompt"
+          wx:if="{{arrData && !arrData.length}}">
+        <text>暂无该车系的汽车哦...</text>
+    </view>
+    <scroll-view scroll-y class="list-section">
+        <view class="dt" wx:if="{{arrData && arrData.length}}">
+            <text>{{params$.BrandName}}</text>
+        </view>
+        <view class="dd"
+              bindtap="handleSelect"
+              data-item="{{item}}"
+              wx:for="{{arrData}}"
+              wx:key="index">
+            <text class="text">{{item}}</text>
+        </view>
+    </scroll-view>
+</view>

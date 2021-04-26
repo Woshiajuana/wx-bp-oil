@@ -1,41 +1,17 @@
 {
     "pages": [
-        "pages/login/index",
         "pages/home/index",
-        "pages/bill/index",
-        "pages/mine/index"
+        "pages/brand/index",
+        "pages/details/index",
+        "pages/login/index",
+        "pages/model/index",
+        "pages/series/index",
+        "pages/suitable/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#5cc8fe",
-        "navigationBarTitleText": "一步记账",
-        "navigationBarTextStyle": "#fff"
-    },
-    "tabBar": {
-        "color": "#999",
-        "selectedColor": "#58b7ff",
-        "backgroundColor": "#fff",
-        "borderStyle": "black",
-        "position": "bottom",
-        "list": [
-            {
-                "pagePath": "pages/home/index",
-                "text": "首页",
-                "iconPath": "assets/images/tabbar-mine-icon.png",
-                "selectedIconPath": "assets/images/tabbar-mine-icon.png"
-            },
-            {
-                "pagePath": "pages/bill/index",
-                "text": "账单",
-                "iconPath": "assets/images/tabbar-mine-icon.png",
-                "selectedIconPath": "assets/images/tabbar-mine-icon.png"
-            },
-            {
-                "pagePath": "pages/mine/index",
-                "text": "我的",
-                "iconPath": "assets/images/tabbar-mine-icon.png",
-                "selectedIconPath": "assets/images/tabbar-mine-icon.png"
-            }
-        ]
+        "navigationBarBackgroundColor": "#11b9ea",
+        "navigationBarTitleText": "嘉实多选油助手",
+        "navigationBarTextStyle": "white"
     }
 }

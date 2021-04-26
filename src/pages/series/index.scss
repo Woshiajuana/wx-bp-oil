@@ -1,0 +1,83 @@
+@import '../../assets/scss/define';
+
+page{
+    @extend %h100;
+    background-color: #f2f2f2;
+}
+.wrap{
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+    @extend %bsb;
+    @extend %h100;
+    @extend %oh;
+}
+.search-section{
+    @extend %pr;
+    height: j(60);
+    margin: j(15) 0;
+    width: j(710);
+    border-radius: j(10);
+    background-color: #fff;
+}
+.search-image{
+    @extend %pa;
+    @extend %t0;
+    @extend %l0;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    width: j(60);
+    height: j(60);
+}
+.search-icon{
+    width: j(40);
+    height: j(40);
+}
+.search-input{
+    @extend %w100;
+    @extend %bsb;
+    @extend %h100;
+    font-size: j(30);
+    line-height: j(60);
+    background-color: transparent;
+    padding: 0 j(20) 0 j(80);
+}
+.list-section{
+    @extend %pr;
+    @extend %df1;
+    @extend %w100;
+    height: j(200);
+}
+.dt{
+    @extend %df;
+    @extend %aic;
+    font-size: j(32);
+    height: j(60);
+    background-color: #ddd;
+    padding: 0 j(40);
+}
+.dd{
+    @extend %df;
+    @extend %aic;
+    @extend %cp;
+    @extend %c3;
+    height: j(100);
+    background-color: #fff;
+    padding: 0 j(40);
+    font-size: j(32);
+}
+.text{
+    @extend %df1;
+    @extend %twno;
+    height: j(100);
+    line-height: j(100);
+}
+.result-prompt{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %c9;
+    font-size: j(30);
+    height: j(200);
+}

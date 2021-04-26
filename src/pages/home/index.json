@@ -1,8 +1,5 @@
 {
-    "navigationBarTitleText": "日常记账",
-    "navigationBarTextStyle": "#fff",
-    "navigationBarBackgroundColor": "#5cc8fe",
-    "usingComponents": {
-        "wow-scroll": "../../components/wow-scroll/index"
-    }
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#fff"
 }

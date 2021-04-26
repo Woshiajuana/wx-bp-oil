@@ -1,0 +1,17 @@
+@import '../../assets/scss/define';
+
+page{
+    background-color: #f2f2f2;
+}
+.wrap{
+    @extend %pr;
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+    @extend %bsb;
+    @extend %oh;
+}
+.content{
+    @extend %w100;
+    height: auto;
+}

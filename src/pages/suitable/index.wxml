@@ -1,0 +1,194 @@
+<!--index.wxml-->
+<view class="wrap">
+
+    <view class="section card-section" wx:if="{{objCarInfo}}">
+        <view class="section-title">
+            <image class="logo" mode="widthFix" src="{{objCarInfo.LogoPath}}"></image>
+        </view>
+        <view class="card-content">
+            <view class="card-item">
+                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-1.png"></image>
+                <text class="card-text">{{objCarInfo.BrandName}} {{objCarInfo.SeriesName}} {{objCarInfo.ModelName}}</text>
+            </view>
+            <view class="card-item">
+                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-2.png"></image>
+                <text class="card-text">{{objCarInfo.AirInletForm}}</text>
+            </view>
+            <view class="card-item">
+                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-3.png"></image>
+                <text class="card-text">{{objCarInfo.SpeedChangeType}}</text>
+            </view>
+<!--            <view class="card-item" wx:if="{{objCarInfo.MaintenanceOils}}">-->
+<!--                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-4.png"></image>-->
+<!--                <text class="card-text">{{objCarInfo.MaintenanceOils}}</text>-->
+<!--            </view>-->
+            <view class="card-item">
+                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-5.png"></image>
+                <text class="card-text">原厂规格油品：{{objCarInfo.Spec}}</text>
+            </view>
+<!--            <view class="card-item">-->
+<!--                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-6.png"></image>-->
+<!--                <text class="card-text">发动机型号：{{objCarInfo.EngineModel}}</text>-->
+<!--            </view>-->
+            <view class="card-item">
+                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-7.png"></image>
+                <text class="card-text">变速箱描述：{{objCarInfo.SpeedChangeDescribe}}</text>
+            </view>
+            <view class="card-item">
+                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-8.png"></image>
+                <text class="card-text">档位数：{{objCarInfo.GearCount}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="section oil-section" wx:if="{{arrArrOilData.length}}">
+        <view class="section-title">
+            <view class="bar"></view>
+            <text>机油</text>
+        </view>
+        <swiper
+            class="oil-content"
+            circular
+            indicator-color="#999"
+            indicator-active-color="#459350"
+            indicator-dots>
+            <swiper-item
+                class="oil-item"
+                wx:for="{{arrArrOilData}}"
+                wx:for-item="arrOilData"
+                wx:for-index="numOilIndex"
+                wx:key="numOilIndex">
+                <view class="oil-cell {{numOilIndex + index === 0 && 'hot-cell'}}"
+                      bindtap="handleJump"
+                      data-params="{{item}}"
+                      data-url="details_index"
+                      wx:for="{{arrOilData}}"
+                      wx:key="index">
+                    <view class="oil-top">
+                        <image class="oil-image" mode="widthFix" src="{{item.OilLogoPath}}"></image>
+                        <image class="oil-type" mode="widthFix" src="../../assets/images/hot-icon.png"></image>
+                    </view>
+                    <view class="oil-name">
+                        <text>{{item.OilName}}</text>
+                    </view>
+                    <view class="oil-tag">
+                        <view class="oil-tag-item"
+                              wx:if="{{item.OilType}}">
+                            <text>{{item.OilType}}</text>
+                        </view>
+                        <view class="oil-tag-item"
+                              wx:if="{{item.OilSize}}">
+                            <text>{{item.OilSize}}</text>
+                        </view>
+                    </view>
+                    <view class="oil-flex"></view>
+                    <view class="oil-prompt">
+                        <text>{{item.OilContent}}</text>
+                    </view>
+                </view>
+                <view class="oil-cell null" wx:if="{{arrOilData.length === 2}}"></view>
+            </swiper-item>
+        </swiper>
+    </view>
+
+    <view class="section speed-section" wx:if="{{arrGearBoxOilList.length}}">
+        <view class="section-title">
+            <view class="bar"></view>
+            <text>变速箱油</text>
+        </view>
+        <view class="speed-content"
+              wx:for="{{arrGearBoxOilList}}"
+              wx:key="index">
+            <view class="speed-item active">
+                <view class="speed-image">
+                    <image
+                        wx:if="{{item.GearBoxOilLogoPath}}"
+                        bindtap="handleJump"
+                        data-params="{{item}}"
+                        data-url="details_index"
+                        class="speed-icon"
+                        mode="widthFix"
+                        src="{{item.GearBoxOilLogoPath}}"
+                    ></image>
+                    <image
+                        wx:else
+                        class="speed-icon"
+                        mode="widthFix"
+                        src="../../assets/images/null-img.png"
+                    ></image>
+                </view>
+                <image class="oil-type" wx:if="{{index === 0}}" mode="widthFix" src="../../assets/images/hot-icon.png"></image>
+                <view class="speed-info">
+                    <text class="speed-info-title">{{item.GearBoxOilName}}</text>
+                    <text>{{item.GearBoxOilType}}</text>
+                    <view class="speed-info-prompt line-height" wx:if="{{item.JieTouXingHaoImg}}" >
+                        <text>接头型号：</text>
+                        <view class="speed-info-value">
+                            <view class="speed-info-value-item"
+                                wx:for="{{item.JieTouXingHaos}}"
+                                wx:for-item="xhItem"
+                                wx:key="xhIndex"
+                                wx:for-index="xhIndex">
+                                <text>{{xhItem}}</text>
+                                <text
+                                    wx:if="{{item.JieTouXingHaoImgs[xhIndex]}}"
+                                    bindtap="handlePreview"
+                                    class="color"
+                                    data-url="{{item.JieTouXingHaoImgs[xhIndex]}}"
+                                >(查看图片)</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="speed-info-prompt" wx:if="{{item.XunHuanJiJieTouWeiZhiImg}}">
+                        <text>循环机连接接头位置：</text>
+                        <text bindtap="handlePreview" class="color" data-url="{{item.XunHuanJiJieTouWeiZhiImg}}">(查看图片)</text>
+                    </view>
+                    <view class="speed-info-prompt" wx:if="{{item.LiuChengImg}}">
+                        <text>流程参考：</text>
+                        <text bindtap="handlePreview" class="color" data-url="{{item.LiuChengImg}}">(查看图片)</text>
+                    </view>
+                    <view class="speed-info-prompt" wx:if="{{item.LvXinWeiZhiImg}}" >
+                        <text>滤芯位置：</text>
+                        <text bindtap="handlePreview" class="color" data-url="{{item.LvXinWeiZhiImg}}">(查看图片)</text>
+                    </view>
+                    <view class="speed-info-prompt" wx:if="{{item.DaXiuJiaZhuLiang}}" >
+                        <text>大修加注量(L)：{{item.DaXiuJiaZhuLiang}}</text>
+                    </view>
+                    <view class="speed-info-prompt" wx:if="{{item.XunHuanJiaZhuLiang}}" >
+                        <text>循环机推荐油量(L)：{{item.XunHuanJiaZhuLiang}}</text>
+                    </view>
+                    <view class="speed-info-prompt" wx:if="{{item.BaoYangJiaZhuLiang}}" >
+                        <text>保养加注量(L)：{{item.BaoYangJiaZhuLiang}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="speed-item" wx:if="{{item.GearBoxOilFlag == 1}}">
+                <view class="speed-image">
+                    <image class="speed-icon" mode="widthFix" src="../../assets/images/spee-icon1.png"></image>
+                </view>
+                <view class="speed-info">
+                    <text>嘉实多产畅护，提供可达两倍顺畅换挡时长*</text>
+                </view>
+            </view>
+            <view class="speed-item" wx:if="{{item.GearBoxOilFlag == 1}}">
+                <view class="speed-image">
+                    <image class="speed-icon" mode="widthFix" src="../../assets/images/spee-icon2.png"></image>
+                </view>
+                <view class="speed-info">
+                    <text>拥有SDT畅顺传动技术™</text>
+                    <text>嘉实多畅护自动变速箱油可以随着压力与速度的</text>
+                    <text>变化而自动调节摩擦特性</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view wx:if="{{objCarInfo}}" class="tel-button" bindtap="handleTelConfirm"><text>拨打客服热线</text></view>
+
+    <view class="advert-section" wx:if="{{objCarInfo}}">
+        <view class="advert-item">
+            <image class="advert-image" mode="widthFix" src="../../assets/images/banner-1.png"></image>
+        </view>
+    </view>
+
+</view>

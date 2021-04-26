@@ -1,3 +1,74 @@
-@import "../../assets/scss/define";
-@import "../../assets/scss/skin";
+@import '../../assets/scss/define';
 
+page{
+    @extend %h100;
+    background-color: #fff;
+}
+.wrap{
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+    //@extend %jcc;
+    @extend %c3;
+    @extend %bsb;
+    @extend %h100;
+}
+.logo{
+    margin-top: j(120);
+    width: j(240);
+    height: auto;
+}
+.title{
+    @extend %c3;
+    font-size: j(42);
+    margin: j(40) auto;
+}
+.sub-title{
+    @extend %c9;
+    font-size: j(24);
+}
+.bar{
+    margin: j(40);
+    width: j(700);
+    height: j(1);
+    background-color: #ddd;
+}
+.prompt{
+    @extend %c3;
+    @extend %aic;
+    @extend %df;
+    margin-top: j(40);
+    width: j(700);
+    font-size: j(24);
+}
+.dot{
+    width: j(20);
+    height: j(20);
+    margin-right: j(20);
+    background-color: #ddd;
+    border-radius: 50%;
+}
+.operate{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    margin-top: j(60);
+}
+.operate-button{
+    @extend %df;
+    @extend %aic;
+    @extend %cp;
+    @extend %jcc;
+    @extend %cp;
+    @extend %cfff;
+    font-size: j(36);
+    border: none;
+    border-radius: j(40);
+    width: j(250);
+    height: j(80);
+    margin: 0 j(50);
+    background-color: #999;
+    &.sure{
+        background-color: #459350;
+    }
+}

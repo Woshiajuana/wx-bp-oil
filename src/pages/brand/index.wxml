@@ -1,0 +1,55 @@
+<!--index.wxml-->
+<view class="wrap">
+    <view class="search-section">
+        <view class="search-image">
+            <image class="search-icon" mode="widthFix" src="../../assets/images/search-icon.png"></image>
+        </view>
+        <input
+            class="search-input"
+            type="text"
+            placeholder="搜索品牌"
+            bindinput="bindInput"
+            data-item="strKeyword"
+        />
+    </view>
+    <view class="result-prompt"
+          wx:if="{{arrKey && !arrKey.length}}">
+        <text>暂无该品牌的汽车哦...</text>
+    </view>
+    <scroll-view
+        class="list-section"
+        scroll-top="{{numScrollTop}}"
+        scroll-into-view="{{strKey}}"
+        scroll-with-animation
+        scroll-y>
+        <block wx:for="{{arrData}}"
+               wx:for-item="objGroup"
+               wx:for-index="numGroupIndex"
+               wx:key="numGroupIndex">
+            <view class="dt" id="{{objGroup.Letter}}">
+                <text>{{objGroup.Letter}}</text>
+            </view>
+            <view class="dd"
+                  bindtap="handleSelect"
+                  data-item="{{item}}"
+                  wx:for="{{objGroup.data}}"
+                  wx:key="index">
+                <image class="logo" mode="widthFix" src="{{item.LogoPath}}"></image>
+                <text class="text">{{item.BrandName}}</text>
+            </view>
+        </block>
+    </scroll-view>
+    <view class="tag-section">
+        <view class="tag-item {{strKey === item && 'active'}}"
+              bindtap="bindInput"
+              data-item="strKey"
+              data-value="{{item}}"
+              wx:for="{{arrKey}}"
+              wx:key="index">
+            <text>{{item}}</text>
+        </view>
+    </view>
+    <view hidden="{{!isShowTag}}" class="tag-prompt">
+        <text>{{strKey}}</text>
+    </view>
+</view>

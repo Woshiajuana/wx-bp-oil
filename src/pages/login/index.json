@@ -1,9 +1,5 @@
 {
-    "navigationBarTitleText": "日常记账",
-    "navigationBarTextStyle": "#fff",
-    "navigationBarBackgroundColor": "#5cc8fe",
-    "usingComponents": {
-        "wow-button": "../../components/wow-button/index",
-        "wow-cell": "../../components/wow-cell/index"
-    }
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#fff"
 }

@@ -1,0 +1,32 @@
+<!--index.wxml-->
+<view class="wrap">
+    <view class="search-section">
+        <view class="search-image">
+            <image class="search-icon" mode="widthFix" src="../../assets/images/search-icon.png"></image>
+        </view>
+        <input
+            class="search-input"
+            type="text"
+            placeholder="搜索车型"
+            bindinput="bindInput"
+            data-item="strKeyword"
+        />
+    </view>
+    <view class="result-prompt"
+          wx:if="{{arrData && !arrData.length}}">
+        <text>暂无该车型的汽车哦...</text>
+    </view>
+    <scroll-view scroll-y class="list-section">
+        <view class="dt" wx:if="{{arrData && arrData.length}}">
+            <text>{{params$.BrandName}} {{params$.SeriesName}}</text>
+        </view>
+        <view class="dd"
+              bindtap="handleSelect"
+              data-item="{{item}}"
+              wx:for="{{arrData}}"
+              wx:key="index">
+            <text class="title-text">{{item.ModelYear}} {{item.ModelName}}</text>
+            <text class="subtitle-text">{{item.ModelDriver}} / {{item.SpeedChangeDescribe}}</text>
+        </view>
+    </scroll-view>
+</view>

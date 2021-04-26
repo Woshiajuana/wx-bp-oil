@@ -1,26 +1,17 @@
-@function j($px, $base-font-size: 37.5px) {
-    @if (unitless($px)) {
-        @return j($px + 0px); // That may fail.
-    } @else if (unit($px) == rem) {
-        @return $px;
-    }
-    @return ($px / $base-font-size) * 1rem;
-}
-
-@function wx($px) {
+@function j($px) {
     @return $px * 1rpx;
 }
 
-%fdc{
-    flex-direction: column;
+@function f($px) {
+    @return $px * 1rpx;
 }
 
-%aic{
-    align-items: center;
+%boxs{
+    box-shadow: 0 0 j(5) j(5) rgba(0,0,0,.05);
 }
 
-%jcc{
-    justify-content: center;
+%bg{
+    background-size: j(1000);
 }
 
 %fs0{
@@ -68,6 +59,40 @@
     top: 0;
 }
 
+%jcc{
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+%fww{
+    -webkit-flex-wrap:wrap;
+    -webkit-box-lines:multiple;
+    -moz-flex-wrap:wrap;
+    flex-wrap:wrap;
+}
+
+%jcs{
+    -webkit-box-pack: space-between;
+    -ms-flex-pack: space-between;
+    justify-content: space-between;
+}
+
+%fdc{
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+    -moz-box-orient:vertical;
+    -moz-box-direction:normal;
+    flex-direction:column;
+    -webkit-flex-direction:column;
+}
+
+%aic{
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
 %bsb{
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -86,6 +111,15 @@
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
+    //width:0%
+}
+
+%dfn{
+    -webkit-box-flex: none;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+    //width:0%
 }
 
 %pr{
