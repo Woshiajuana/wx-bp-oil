@@ -38,6 +38,7 @@ page{
     }
 }
 .card-section{
+    height: j(620);
     .section-title{
         @extend %df;
         @extend %aic;
@@ -56,6 +57,7 @@ page{
     @extend %aic;
     @extend %c3;
     @extend %oh;
+    @extend %bsb;
     height: j(80);
     font-size: j(28);
     padding: 0 j(20);

@@ -12,15 +12,17 @@ WowPage({
         WowPage.wow$.mixins.share,
     ],
     data: {
-        objData: '',
-        objCarInfo: '',
-        arrArrOilData: [],
-        arrGearBoxOilList: [],
+        current: 0,
+        arrData: [],
+        oilCurrent: 0,
     },
     onLoad (options) {
         this.routerGetParams(options);
         this.doSubHistory();
         this.reqOilInfo();
+    },
+    handleChange (event) {
+        this.setData({ current: event.detail.current, oilCurrent: 0 });
     },
     doSubHistory () {
         let { http, store } = this.wow$.plugins;
@@ -49,7 +51,7 @@ WowPage({
     reqOilInfo () {
         let { params$ } = this.data;
         if (params$.from === 'home_index') {
-            return this.formatData(params$);
+            return this.formatData(params$.data);
         }
         let { http } = this.wow$.plugins;
         let {
@@ -72,22 +74,34 @@ WowPage({
         }).toast();
     },
     formatData (res) {
-        let { CarInfo, OilList = [], GearBoxOilList = [] } = res || {};
-        let arrArrOilData = [];
-        if (OilList) {
-            for (let i = 0, len = OilList.length; i < len; i ++) {
-                if (i % 3 === 0) {
-                    arrArrOilData.push([OilList[i]]);
-                } else {
-                    arrArrOilData[arrArrOilData.length -1].push(OilList[i]);
+        let arrData = [];
+        if (!Array.isArray(res)) {
+            res = [res];
+        }
+        res.forEach(item => {
+            let { CarInfo, OilList = [], GearBoxOilList = [] } = item || {};
+            let arrArrOilData = [];
+            if (OilList) {
+                for (let i = 0, len = OilList.length; i < len; i ++) {
+                    if (i % 3 === 0) {
+                        arrArrOilData.push([OilList[i]]);
+                    } else {
+                        arrArrOilData[arrArrOilData.length -1].push(OilList[i]);
+                    }
                 }
             }
-        }
-        GearBoxOilList.forEach((item) => {
-            item.JieTouXingHaos = item.JieTouXingHao.split(';');
-            item.JieTouXingHaoImgs = item.JieTouXingHaoImg.split(';');
+            GearBoxOilList.forEach((item) => {
+                item.JieTouXingHaos = item.JieTouXingHao.split(';');
+                item.JieTouXingHaoImgs = item.JieTouXingHaoImg.split(';');
+            });
+            arrData.push({
+                objCarInfo: CarInfo || {},
+                arrArrOilData,
+                arrGearBoxOilList: GearBoxOilList || [],
+            });
         });
-        this.setData({ objCarInfo: CarInfo || {}, arrArrOilData, arrGearBoxOilList: GearBoxOilList || [] });
+
+        this.setData({ arrData });
     },
     handlePreview (event) {
         let {
@@ -101,9 +115,5 @@ WowPage({
             success: (res) => { console.log(res) },
             fail: (err) => { console.log(err) },
         });
-    },
-    handleTelConfirm () {
-        let tel = '4000353585';
-        wx.makePhoneCall({ phoneNumber: tel });
     },
 });

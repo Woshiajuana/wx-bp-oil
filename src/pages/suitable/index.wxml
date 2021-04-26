@@ -1,47 +1,49 @@
 <!--index.wxml-->
 <view class="wrap">
 
-    <view class="section card-section" wx:if="{{objCarInfo}}">
-        <view class="section-title">
-            <image class="logo" mode="widthFix" src="{{objCarInfo.LogoPath}}"></image>
-        </view>
-        <view class="card-content">
-            <view class="card-item">
-                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-1.png"></image>
-                <text class="card-text">{{objCarInfo.BrandName}} {{objCarInfo.SeriesName}} {{objCarInfo.ModelName}}</text>
+    <swiper
+        bindchange="handleChange"
+        class="section card-section"
+        circular
+        indicator-color="#999"
+        indicator-active-color="#459350"
+        indicator-dots>
+        <swiper-item
+            wx:for="{{arrData}}"
+            wx:key="index">
+            <view class="section-title">
+                <image class="logo" mode="widthFix" src="{{item.objCarInfo.LogoPath}}"></image>
             </view>
-            <view class="card-item">
-                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-2.png"></image>
-                <text class="card-text">{{objCarInfo.AirInletForm}}</text>
+            <view class="card-content">
+                <view class="card-item">
+                    <image class="card-icon" mode="widthFix" src="../../assets/images/icon-1.png"></image>
+                    <text class="card-text">{{item.objCarInfo.BrandName}} {{item.objCarInfo.SeriesName}} {{item.objCarInfo.ModelName}}</text>
+                </view>
+                <view class="card-item">
+                    <image class="card-icon" mode="widthFix" src="../../assets/images/icon-2.png"></image>
+                    <text class="card-text">{{item.objCarInfo.AirInletForm}}</text>
+                </view>
+                <view class="card-item">
+                    <image class="card-icon" mode="widthFix" src="../../assets/images/icon-3.png"></image>
+                    <text class="card-text">{{item.objCarInfo.SpeedChangeType}}</text>
+                </view>
+                <view class="card-item">
+                    <image class="card-icon" mode="widthFix" src="../../assets/images/icon-5.png"></image>
+                    <text class="card-text">原厂规格油品：{{item.objCarInfo.Spec}}</text>
+                </view>
+                <view class="card-item">
+                    <image class="card-icon" mode="widthFix" src="../../assets/images/icon-7.png"></image>
+                    <text class="card-text">变速箱描述：{{item.objCarInfo.SpeedChangeDescribe}}</text>
+                </view>
+                <view class="card-item">
+                    <image class="card-icon" mode="widthFix" src="../../assets/images/icon-8.png"></image>
+                    <text class="card-text">档位数：{{item.objCarInfo.GearCount}}</text>
+                </view>
             </view>
-            <view class="card-item">
-                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-3.png"></image>
-                <text class="card-text">{{objCarInfo.SpeedChangeType}}</text>
-            </view>
-<!--            <view class="card-item" wx:if="{{objCarInfo.MaintenanceOils}}">-->
-<!--                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-4.png"></image>-->
-<!--                <text class="card-text">{{objCarInfo.MaintenanceOils}}</text>-->
-<!--            </view>-->
-            <view class="card-item">
-                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-5.png"></image>
-                <text class="card-text">原厂规格油品：{{objCarInfo.Spec}}</text>
-            </view>
-<!--            <view class="card-item">-->
-<!--                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-6.png"></image>-->
-<!--                <text class="card-text">发动机型号：{{objCarInfo.EngineModel}}</text>-->
-<!--            </view>-->
-            <view class="card-item">
-                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-7.png"></image>
-                <text class="card-text">变速箱描述：{{objCarInfo.SpeedChangeDescribe}}</text>
-            </view>
-            <view class="card-item">
-                <image class="card-icon" mode="widthFix" src="../../assets/images/icon-8.png"></image>
-                <text class="card-text">档位数：{{objCarInfo.GearCount}}</text>
-            </view>
-        </view>
-    </view>
+        </swiper-item>
+    </swiper>
 
-    <view class="section oil-section" wx:if="{{arrArrOilData.length}}">
+    <view class="section oil-section" wx:if="{{arrData[current] && arrData[current].arrArrOilData.length}}">
         <view class="section-title">
             <view class="bar"></view>
             <text>机油</text>
@@ -49,12 +51,13 @@
         <swiper
             class="oil-content"
             circular
+            current="{{oilCurrent}}"
             indicator-color="#999"
             indicator-active-color="#459350"
             indicator-dots>
             <swiper-item
                 class="oil-item"
-                wx:for="{{arrArrOilData}}"
+                wx:for="{{arrData[current].arrArrOilData}}"
                 wx:for-item="arrOilData"
                 wx:for-index="numOilIndex"
                 wx:key="numOilIndex">
@@ -91,13 +94,13 @@
         </swiper>
     </view>
 
-    <view class="section speed-section" wx:if="{{arrGearBoxOilList.length}}">
+    <view class="section speed-section" wx:if="{{arrData[current] && arrData[current].arrGearBoxOilList.length}}">
         <view class="section-title">
             <view class="bar"></view>
             <text>变速箱油</text>
         </view>
         <view class="speed-content"
-              wx:for="{{arrGearBoxOilList}}"
+              wx:for="{{arrData[current].arrGearBoxOilList}}"
               wx:key="index">
             <view class="speed-item active">
                 <view class="speed-image">
@@ -183,9 +186,7 @@
         </view>
     </view>
 
-<!--    <view wx:if="{{objCarInfo}}" class="tel-button" bindtap="handleTelConfirm"><text>拨打客服热线</text></view>-->
-
-    <view class="advert-section" wx:if="{{objCarInfo}}">
+    <view class="advert-section">
         <view class="advert-item">
             <image class="advert-image" mode="widthFix" src="../../assets/images/banner-1.jpg"></image>
         </view>

@@ -113,7 +113,7 @@ WowPage({
         http(http.API.REQ_OIL_INFO_BY_VIN, {
             vinCode: strVin,
         }).then((res = {}) => {
-            this.routerPush('suitable_index', { from: 'home_index', ...res });
+            this.routerPush('suitable_index', { from: 'home_index', data: res });
             this.setData({ strVin: '' });
         }).toast();
     },
