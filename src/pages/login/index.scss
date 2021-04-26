@@ -16,7 +16,7 @@ page{
 .logo{
     margin-top: j(120);
     width: j(240);
-    height: auto;
+    height: j(240);
 }
 .title{
     @extend %c3;

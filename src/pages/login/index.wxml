@@ -1,14 +1,10 @@
 <!--index.wxml-->
 <view class="wrap">
 
-    <image class="logo" mode="widthFix" src="../../assets/images/logo-icon.png"></image>
+    <image class="logo" mode="widthFix" src="../../assets/images/logo-icon.jpg"></image>
 
     <view class="title">
         <text>BP润滑油产品选油助手</text>
-    </view>
-
-    <view class="sub-title">
-        <text>嘉实多（深圳）有限公司</text>
     </view>
 
     <view class="bar"></view>
