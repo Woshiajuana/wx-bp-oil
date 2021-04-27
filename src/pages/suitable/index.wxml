@@ -43,12 +43,13 @@
         </swiper-item>
     </swiper>
 
-    <view class="section oil-section" wx:if="{{arrData[current] && arrData[current].arrArrOilData.length}}">
+    <view class="section oil-section" wx:if="{{arrData[current]}}">
         <view class="section-title">
             <view class="bar"></view>
             <text>机油</text>
         </view>
         <swiper
+            wx:if="{{arrData[current].arrArrOilData.length}}"
             class="oil-content"
             circular
             current="{{oilCurrent}}"
@@ -92,6 +93,15 @@
                 <view class="oil-cell null" wx:if="{{arrOilData.length === 2}}"></view>
             </swiper-item>
         </swiper>
+        <view class="oil-null" wx:else>
+            <image
+                class="oil-null-icon"
+                src="../../assets/images/null-img.png"
+            ></image>
+            <view class="oil-null-prompt">
+                <text>暂无相关数据 建议用户遵守用户手册</text>
+            </view>
+        </view>
     </view>
 
     <view class="section speed-section" wx:if="{{arrData[current] && arrData[current].arrGearBoxOilList.length}}">

@@ -73,6 +73,21 @@ page{
     @extend %twno;
 }
 
+.oil-null{
+    @extend %df;
+    @extend %aic;
+    padding: j(50);
+}
+.oil-null-prompt{
+    @extend %c6;
+    @extend %df1;
+    font-size: j(24);
+}
+.oil-null-icon{
+    width: j(100);
+    height: j(100);
+    margin-right: j(20);
+}
 .oil-content{
     @extend %w100;
     height: j(420);

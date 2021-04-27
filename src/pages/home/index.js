@@ -109,7 +109,7 @@ WowPage({
         }
         if (!strVin) return modal.toast('请输入17位VIN码');
         // if (strVin.trim().length !== 17) return modal.toast('VIN码输入有误');
-        // LBVVA96057SB61697
+        // LGBR4DE49FR007718
         http(http.API.REQ_OIL_INFO_BY_VIN, {
             vinCode: strVin,
         }).then((res = {}) => {
