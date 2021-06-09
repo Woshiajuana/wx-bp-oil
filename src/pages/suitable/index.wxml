@@ -39,6 +39,10 @@
                     <image class="card-icon" mode="widthFix" src="../../assets/images/icon-8.png"></image>
                     <text class="card-text">档位数：{{item.objCarInfo.GearCount}}</text>
                 </view>
+                <view class="card-item">
+                    <image class="card-icon" mode="widthFix" src="../../assets/images/icon-9.jpg"></image>
+                    <text class="card-text">保养加注量：{{item.objCarInfo.MaintenanceOils || 0}}L</text>
+                </view>
             </view>
         </swiper-item>
     </swiper>
