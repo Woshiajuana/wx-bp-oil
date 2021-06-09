@@ -24,6 +24,12 @@
             bindtap="handleRefuse"
         >拒绝</button>
         <button
+            wx:if="{{canIUseGetUserProfile}}"
+            class="operate-button sure"
+            bindtap="handleGetUser"
+        >允许</button>
+        <button
+            wx:else
             class="operate-button sure"
             open-type="getUserInfo"
             bindgetuserinfo="handleGetUser"

@@ -11,15 +11,22 @@ WowPage({
         WowPage.wow$.mixins.router,
         WowPage.wow$.mixins.share,
     ],
+    data: {
+        canIUseGetUserProfile: !!wx.getUserProfile,
+    },
     onLoad (options) {
         this.routerGetParams(options);
     },
     handleGetUser (event) {
         let { userInfo } = event.detail;
-        if (!userInfo) return null;
+        let { canIUseGetUserProfile } = this.data;
+        if (!userInfo && !canIUseGetUserProfile) return null;
         let code;
         let { modal, http } = this.wow$.plugins;
-        this.userLogin().then((res) => {
+        this.userGetProfile().then(res => {
+            userInfo = res.userInfo;
+            return this.userLogin();
+        }).then(res => {
             code = res;
             return this.userGetInfo();
         }).then((res) => {
@@ -49,12 +56,30 @@ WowPage({
             if (typeof err === 'object' && err.status === 302) {
                 return this.handleGetUser(event);
             }
-            modal.toast(err);
+            if (err) {
+                modal.toast(err);
+            }
         });
     },
     handleRefuse () {
         let { useRoot } = this.data.params$;
         useRoot ? this.routerRoot('home_index', {}, true) : this.routerPop();
-    }
+    },
+    userGetProfile (options = {}) {
+        return new Promise((resolve, reject) => {
+            const fn = wx.getUserProfile || wx.getUserInfo;
+            fn({
+                desc: '用于完善会员资料',
+                ...options,
+                success: (res) => {
+                    resolve(res);
+                },
+                fail: err => {
+                    console.log('getUserProfile => ', err);
+                    reject('');
+                }
+            })
+        });
+    },
 });
 
