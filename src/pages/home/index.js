@@ -23,6 +23,15 @@ WowPage({
         numTabIndex: 0,
         isPopup: false,
     },
+    onLoad () {
+        const { modal } = this.wow$.plugins;
+        modal.confirm({
+            title: '温馨提示',
+            content: `1、本油品推荐仅供参考，但最终选油依据须以车辆用户手册或原厂技术公告为准，请核实车辆配置信息，遵守相关推荐机油的标准。\n
+2、正确的机油液位对发动机的正常运行非常重要，选油助手的推荐加注量仅供参考，请以车辆用户手册为准。`,
+            showCancel: false
+        })
+    },
     onShow () {
         this.userGet().then(() => {
             this.setData({ numIndex: 1 });
