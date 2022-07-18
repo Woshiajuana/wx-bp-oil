@@ -1,3 +1,3 @@
 export default {
-    API_URL: 'https://castorl-oil.g2digi.com/bp-oil/',        // 接口
+    API_URL: 'https://bpoil.castrol.com.cn/',        // 接口
 }
