@@ -1,11 +1,27 @@
 
 // import '../utils/es6-promise.util'
-import EnvConfig                from 'config/env.config'
 import ApiConfig                from 'config/api.config'
 import Modal                    from 'wow-wx/plugins/modal.plugin'
 import Auth                     from 'wow-wx/plugins/auth.plugin'
 import Loading                  from 'wow-wx/plugins/loading.plugin'
 import Router                   from 'wow-wx/plugins/router.plugin'
+
+
+export const isProd = (() => {
+    let result = true
+    try {
+        if (wx.getAccountInfoSync) {
+            const accountInfo = wx.getAccountInfoSync()
+            const { envVersion } = accountInfo.miniProgram
+            // develop trial release
+            if (['develop', 'trial'].includes(envVersion)) {
+                result = false
+            }
+        }
+    } catch (e) {}
+    return result
+})()
+
 
 const DEFAULT = {
     method: 'POST',
@@ -13,6 +29,9 @@ const DEFAULT = {
     useAuth: true,
     useUpLoad: false,
 };
+
+const baseURI = isProd ? 'https://bpoil.castrol.com.cn/' : 'https://oil-test.castrol.com.cn/bp-oil/'
+
 class Http {
     constructor (api, data, opt) {
         let options = Object.assign({}, DEFAULT, opt);
@@ -20,7 +39,7 @@ class Http {
         this.data = data;
         this.useAuth = options.useAuth;
         this.useUpLoad = options.useUpLoad;
-        this.url = EnvConfig.API_URL + api;
+        this.url = baseURI + api;
         return this._fetch();
     }
 
