@@ -15,7 +15,7 @@ export const isProd = (() => {
             const { envVersion } = accountInfo.miniProgram
             // develop trial release
             if (['develop', 'trial'].includes(envVersion)) {
-                result = false
+                // result = false
             }
         }
     } catch (e) {}

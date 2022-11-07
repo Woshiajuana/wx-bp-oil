@@ -22,24 +22,62 @@ WowPage({
         strVin: '',
         numTabIndex: 0,
         isPopup: false,
-    },
-    onLoad () {
-        const { modal } = this.wow$.plugins;
-        modal.confirm({
-            title: '温馨提示',
-            content: `1、本油品推荐仅供参考，但最终选油依据须以车辆用户手册或原厂技术公告为准，请核实车辆配置信息，遵守相关推荐机油的标准。\n
-2、正确的机油液位对发动机的正常运行非常重要，选油助手的推荐加注量仅供参考，请以车辆用户手册为准。`,
-            showCancel: false
-        })
+
+        status: -1,
     },
     onShow () {
-        this.userGet().then(() => {
-            this.setData({ numIndex: 1 });
-            this.assignmentData();
-            this.reqHistoryList();
-        }).catch(() => {
-            this.setData({ numIndex: 1, numTotal: 0, arrHistory: []});
-        });
+        const refresh = () => {
+            this.userGet().then(() => {
+                this.setData({ numIndex: 1 });
+                this.assignmentData();
+                this.reqHistoryList();
+            }).catch(() => {
+                this.setData({ numIndex: 1, numTotal: 0, arrHistory: []});
+            });
+        }
+        const { modal } = this.wow$.plugins;
+        if (this.data.status === -1) {
+            wx.request({
+                url: 'https://bpoil.castrol.com.cn/change.json',
+                success: (response) => {
+                    this.setData({ status: +response.data })
+                    if (this.data.status === 0) {
+                        modal.confirm({
+                            title: '温馨提示',
+                            content: `1、本油品推荐仅供参考，但最终选油依据须以车辆用户手册或原厂技术公告为准，请核实车辆配置信息，遵守相关推荐机油的标准。\n
+2、正确的机油液位对发动机的正常运行非常重要，选油助手的推荐加注量仅供参考，请以车辆用户手册为准。`,
+                            showCancel: false
+                        })
+                        refresh()
+                    } else if (this.data.status === 2) {
+                        modal.confirm({
+                            title: '温馨提示',
+                            content: `新版小程已上线，确认立即跳转`,
+                            showCancel: false
+                        }).then(() => {
+                            this.jumpMini()
+                        }).null()
+                    }
+                },
+                fail: (err) => {
+                    console.log('err => ', err)
+                }
+            })
+        } else if (this.data.status === 0) {
+            refresh()
+        }
+    },
+    jumpMini () {
+        wx.navigateToMiniProgram({
+            appId: 'wx7d543573313f1111', // 小程序appid
+            envVersion: 'release',
+            success (res) {
+                console.log('打开成功 => ', res);
+            },
+            fail (err) {
+                console.log('打开失败 => ', err);
+            },
+        })
     },
     assignmentData () {
         let { store } = this.wow$.plugins;

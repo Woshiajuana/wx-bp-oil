@@ -363,3 +363,20 @@ page{
     width: j(650);
     height: auto;
 }
+.status-tips{
+    @extend %c3;
+    font-size: j(32);
+}
+.jump-button{
+    @extend %df;
+    @extend %cfff;
+    @extend %ma;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cp;
+    font-size: j(32);
+    margin-top: j(40);
+    padding: 0 j(60);
+    height: j(80);
+    background-color: #459350;
+}

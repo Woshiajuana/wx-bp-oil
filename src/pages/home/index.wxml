@@ -1,5 +1,6 @@
+
 <!--index.wxml-->
-<view class="wrap">
+<view class="wrap" wx:if="{{ status === 0 }}">
 
     <image class="bg" mode="widthFix" src="../../assets/images/home-bg.jpg"></image>
 
@@ -125,4 +126,18 @@
         </view>
     </view>
 
+</view>
+
+<view class="wrap" wx:elif="{{ status === 1 }}">
+    <view class="status-tips">
+        <text>小程序正线升级维护中...</text>
+    </view>
+</view>
+
+
+<view class="wrap" wx:elif="{{ status === 2 }}">
+    <view class="status-tips">
+        <text>全选小程序已上线~~~</text>
+    </view>
+    <button class="jump-button" bindtap="jumpMini">立即跳转</button>
 </view>
