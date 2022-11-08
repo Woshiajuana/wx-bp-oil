@@ -137,7 +137,7 @@
 
 <view class="wrap" wx:elif="{{ status === 2 }}">
     <view class="status-tips">
-        <text>全选小程序已上线~~~</text>
+        <text>全新小程序已上线~~~</text>
     </view>
     <button class="jump-button" bindtap="jumpMini">立即跳转</button>
 </view>

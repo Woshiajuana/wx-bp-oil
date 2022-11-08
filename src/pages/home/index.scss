@@ -365,6 +365,7 @@ page{
 }
 .status-tips{
     @extend %c3;
+    padding-top: j(120);
     font-size: j(32);
 }
 .jump-button{

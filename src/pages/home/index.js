@@ -38,7 +38,7 @@ WowPage({
         const { modal } = this.wow$.plugins;
         if (this.data.status === -1) {
             wx.request({
-                url: 'https://bpoil.castrol.com.cn/change.json',
+                url: `https://bpoil.castrol.com.cn/change.json?v=${Date.now()}`,
                 success: (response) => {
                     this.setData({ status: +response.data })
                     if (this.data.status === 0) {
