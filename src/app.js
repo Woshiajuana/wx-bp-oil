@@ -4,6 +4,7 @@ import './app.scss'
 import './wxs/filter.wxs'
 import './utils/es6promise.util'
 import './sitemap.json'
+import './utils/ald-stat'
 
 import WowApp                       from 'wow-wx'
 
