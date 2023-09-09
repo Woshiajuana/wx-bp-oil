@@ -13,5 +13,9 @@
         "navigationBarBackgroundColor": "#11b9ea",
         "navigationBarTitleText": "BP润滑油产品选油助手",
         "navigationBarTextStyle": "white"
-    }
+    },
+    "usingComponents": {
+        "privacy-popup": "/components/privacy-popup/index"
+    },
+    "__usePrivacyCheck__": true
 }

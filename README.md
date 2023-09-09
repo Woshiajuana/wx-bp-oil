@@ -52,4 +52,9 @@ project
 
 ```
 
+## 注意
 
+2023-09-09 因为小程序隐私协议更改
+需要注释掉 wow-wx 包 下 authorize.plugin.js 的 fn.SCOPE 代码
+
+getLocation

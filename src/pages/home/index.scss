@@ -314,6 +314,7 @@ page{
     @extend %fdc;
     @extend %jcc;
     width: j(700);
+    @extend %oh;
     border-radius: j(16);
     background-color: #f7f7f7;
     margin: j(25) 0;
@@ -345,7 +346,8 @@ page{
 .popup-content{
     @extend %df1;
     @extend %w100;
-    height: j(500);
+    @extend %oh;
+    height: j(100);
 }
 .popup-group{
     @extend %w100;

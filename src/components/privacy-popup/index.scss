@@ -1,0 +1,70 @@
+.privacy-popup{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .7);
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10rpx);
+}
+
+.privacy-inner {
+  width: 632rpx;
+  padding: 48rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 16rpx;
+}
+
+.privacy-title {
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.privacy-content {
+  font-size: 32rpx;
+  color: #666;
+  margin-top: 40rpx;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.privacy-link{
+  color: #07c160;
+  text-decoration: underline;
+}
+
+.privacy-btn-group {
+  margin-top: 48rpx;
+  display: flex;
+}
+
+.privacy-btn {
+  justify-content: space-between;
+  width: 244rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16rpx;
+  box-sizing: border-box;
+  border: none;
+  &.is-reject{
+    background: #f4f4f5;
+    color: #909399;
+  }
+  &.is-agree{
+    background: #07c160;
+    color: #fff;
+  }
+  &::after{
+    display: none;
+  }
+}
+

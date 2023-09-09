@@ -126,3 +126,5 @@
     </view>
 
 </view>
+
+<privacy-popup></privacy-popup>
