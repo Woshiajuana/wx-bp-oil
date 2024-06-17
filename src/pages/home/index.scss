@@ -290,8 +290,9 @@ page{
     height: j(80);
 }
 .advert-image{
+    border-radius: j(10);
     width: j(710);
-    height: auto;
+    height: j(310);
 }
 
 .popup-warp{
