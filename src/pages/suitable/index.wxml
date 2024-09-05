@@ -73,7 +73,7 @@
                       wx:for="{{arrOilData}}"
                       wx:key="index">
                     <view class="oil-top">
-                        <image class="oil-image" mode="widthFix" src="{{item.OilLogoPath}}"></image>
+                        <image class="oil-image" mode="heightFix" src="{{item.OilLogoPath}}"></image>
                         <image class="oil-type" mode="widthFix" src="../../assets/images/hot-icon.png"></image>
                     </view>
                     <view class="oil-name">
@@ -202,7 +202,7 @@
 
     <view class="advert-section">
         <view class="advert-item">
-            <image class="advert-image" mode="widthFix" src="../../assets/images/banner-1.jpg"></image>
+            <image class="advert-image" mode="widthFix" src="../../assets/images/banner-3.jpg"></image>
         </view>
     </view>
 

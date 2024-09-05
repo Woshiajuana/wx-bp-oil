@@ -2,6 +2,7 @@
 
 page{
     background-color: #f2f2f2;
+    padding-bottom: j(48);
 }
 .wrap{
     @extend %pr;
@@ -123,8 +124,10 @@ page{
     margin-bottom: j(5);
 }
 .oil-image{
+    // width: j(100);
+    // height: auto;
     width: j(100);
-    height: auto;
+    height: j(100);
 }
 .oil-type{
     @extend %dn;
@@ -132,7 +135,7 @@ page{
     @extend %t0;
     @extend %l0;
     width: j(64);
-    height: auto;
+    height: j(64);
 }
 .oil-name{
     @extend %w100;
@@ -274,8 +277,9 @@ page{
     height: j(80);
 }
 .advert-image{
+    border-radius: j(10);
     width: j(710);
-    height: auto;
+    height: j(310);
 }
 
 .tel-button{
