@@ -87,6 +87,7 @@ page{
     @extend %aic;
     @extend %jcc;
     @extend %fdc;
+    padding-right: j(32);
 }
 .tag-item{
     @extend %df;
@@ -94,14 +95,10 @@ page{
     @extend %jcc;
     @extend %c3;
     @extend %cp;
-    border-radius: 50%;
-    width: j(40);
-    height: j(40);
-    font-size: j(20);
-    //&.active{
-    //    @extend %cfff;
-    //    background-color: #459350;
-    //}
+    width: j(50);
+    height: j(45);
+    margin-top: j(5);
+    font-size: j(22);
 }
 .tag-prompt{
     @extend %pa;

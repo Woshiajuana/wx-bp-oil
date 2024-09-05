@@ -1,1 +1,1 @@
-export default "192.168.0.105";
+export default "10.50.106.73";
